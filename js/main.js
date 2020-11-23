@@ -13,12 +13,15 @@ var score = 0;
 for (var i = 0 ; arrUtente.length < 84; i++) {
     var numeriUtente = Number(prompt("Inserisci tot numeri"));
     if (numeriUtente < 1 || numeriUtente > 100) {
-            alert("Non inserire un numero maggiore di 100, minore di 1, o uno spazio, ritenta");
-    } else if (arrUtente.includes(numeriUtente)) {
-            alert("Non inserire due numeri uguali, ritenta");
+        alert("Non inserire un numero maggiore di 100, minore di 1, ritenta");
+    } else if (isNaN(numeriUtente)) {
+        alert("Non inserire una parola ma un numero, ritenta")
+    }
+    else if (arrUtente.includes(numeriUtente)) {
+        alert("Non inserire due numeri uguali, ritenta");
     } else if (arrRandom.includes(numeriUtente)) {
-            alert("Hai Perso !");
-            break;
+        alert("Hai Perso !");
+        break;
     } else {
         arrUtente.push(numeriUtente);
         score += 1;
@@ -26,5 +29,7 @@ for (var i = 0 ; arrUtente.length < 84; i++) {
 }
 // console dell'array utente
 console.log(arrUtente);
+// Console Score 
+console.log("Score totalizzato :", score);
 // Alert dello score realizzato
 alert("Lo score totalizzato è : " + score + " punti");
